@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="../Scripts/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            //load menu
+            $.ajax ({
+                //retrieve menu page
+                url: "../menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#javascript").attr("id","current");
+                //mark active page
+                $("#js1").attr("id","subcur");
+            });
+        </script>
+        <title>Learning Javascript</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="../style.css" />
+        <link rel="stylesheet" type="text/css" href="jsstyle.css">
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="titlebar">
+                    <h1>Chaton Web Technology</h1>
+                </div>
+                <div id="mainmenu">
+                    
+                </div>
+            </div>
+            <div id="content">
+                <div id="inline">
+                    <h2>Inline Javascript</h2>
+                    <button onclick="alert('Thanks for Clicking. Click OK to close me.')">Click Me!</button>
+                    <p>Code: <pre> &lt;button onclick="alert('Thanks for Clicking. Click OK to close me.')"&gt;Click Me!&lt;/button&gt;</pre></p>
+                    <p>Inline javascript is like inline css in many ways:</p>
+                        <ol>
+                            <li>limited functionality</li>
+                            <li>clutters code</li>
+                            <li>difficult to update, and</li>
+                            <li>lacks re-usability.</li>
+                        </ol>
+                </div>
+                <div id="internal">
+                    <h2>Internal Javascript</h2>
+                    <p>The alert when the page loads is an example of internal javascript.  While it is possible to put the javascript anywhere on the page the convention is to place it in the head or right before the closing body tag.</p>
+                    <p>Code: <pre>&lt;script type="text/javascript"&gt;<br />&#09;//This alert pops up when page has loaded<br />&#09;alert("Page loaded!");<br />&lt;/script&gt;</pre></p>
+                    <h3>Linking Javascript to Elements</h3>
+                    <p id="linkElEx" class="example">Some text</p>
+                    <p>Code: <pre>&#09; //This changes the text (Some text) of the example paragraph<br />&#09;document.getElementById("linkElEx").innerHTML="Some different text";</pre></p>
+                    <h3>onclick</h3>
+                    <button id="onclickEx">You know you want to click me...</button>
+                    <p><pre>&#09;//This operates the onclickEx example button<br />&#09;document.getElementById("onclickEx").onclick=function() {<br />&#09;&#09;alert("Thanks for clicking!");<br />&#09;}</pre></p>
+                    <h4>Putting It Together</h4>
+                    <p id="changeMe" class="example">Nulla elementum ultrices libero, sed mollis enim sagittis non. Duis aliquet neque ac maximus auctor. Morbi vestibulum rhoncus nibh. Curabitur ut vulputate libero. Aenean id leo ac ex tristique ullamcorper quis et eros. Ut at pharetra metus. Nulla a dapibus nisi. Donec lectus ex, lobortis a ornare in, posuere sit amet eros. Nam efficitur congue sapien at porta. In consequat commodo libero in auctor.</p>
+                    <button id="changeIt">Click to Change Text</button>
+                    <button id="addIt">Add Some More Text to It</button>
+                    <button id="resetIt">Reset Text</button>
+                    <p>Code: <pre>&#09;//This changes the text of the changeMe paragraph to the text<br />&#09;//in the script when the viewer clicks the changeIt button<br />&#09;document.getElementById("changeIt").onclick=function() {<br />&#09;&#09;document.getElementById("changeMe").innerHTML="That made no sense!";<br />&#09;}<br /><br />&#09;//This will add text to changeMe paragraph. The text is added regardless<br />&#09;//of the current contents<br />&#09;document.getElementById("addIt").onclick=function() {<br />&#09;&#09;document.getElementById("changeMe").innerHTML=document.getElementById("changeMe").innerHTML +<br />&#09;&#09;" Isn't Javascript fun?!?"<br />&#09;}<br /><br />&#09;//This will return the original lorem ipsum text to the<br />&#09;//changeMe paragraph<br />&#09;document.getElementById("resetIt").onclick=function() {<br />&#09;&#09;document.getElementById("changeMe").innerHTML="Nulla elementum ultrices libero, sed mollis enim sagittis non. Duis<br />&#09;&#09;aliquet neque ac maximus auctor. Morbi vestibulum rhoncus nibh. Curabitur ut vulputate libero. Aenean id leo ac ex<br />&#09;&#09;tristique ullamcorper quis et eros. Ut at pharetra metus. Nulla a dapibus nisi. Donec lectus ex, lobortis a ornare<br />&#09;&#09;in, posuere sit amet eros. Nam efficitur congue sapien at porta. In consequat commodo libero in auctor."<br />&#09;}</pre></p>
+                    <div id="fillMe" class="example">
+                    </div>
+                    <button id="fillIt">Fill Div</button>
+                    <button id="emptyIt">Empty Div</button>
+                    <p>Code: <pre>&#09;//This will add paragraphs and a ul to the empty fillMe div<br />&#09;document.getElementById("fillIt").onclick=function() {<br />&#09;&#09;document.getElementById("fillMe").innerHTML="&lt;p&gt;Javascript can be very useful for&lt;/p&gt;&lt;ul&gt;&lt;li&gt;adding&lt;/li&gt;<br />&#09;&#09;&lt;li&gt;changing&lt;/li&gt;&lt;li&gt;removing&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;page content.";<br />&#09;}<br /><br />&#09;//This will clear the contents of the fillMe div<br />&#09; document.getElementById("emptyIt").onclick=function() {<br />&#09;&#09;document.getElementById("fillMe").innerHTML="";<br />&#09;}</pre></p>
+                    <div class="example">
+                        <p id="hideShow">The quick brown fox jumps over the lazy dog.</p>
+                    </div>
+                    <br />
+                    <button id="hide">Hide</button><button id="show" style="display:none;">Show</button>
+                    <p>Code: <pre>&#09;//This will hide the paragraph using display<br />&#09;document.getElementById("hide").onclick=function() {<br />&#09;&#09;document.getElementById("hide").style.display='none';<br />&#09;&#09;document.getElementById("hideShow").style.display='none';<br />&#09;&#09;document.getElementById("show").style.display='inline';<br />&#09;}<br /><br />&#09;//This will show the paragraph using display<br />&#09;document.getElementById("show").onclick=function() {<br />&#09;&#09;document.getElementById("show").style.display='none';<br />&#09;&#09;document.getElementById("hideShow").style.display='inline';<br />&#09;&#09;document.getElementById("hide").style.display='inline';<br />&#09;}</pre></p>
+                    <p id="visibility" class="example">The quick brown fox jumps over the lazy dog.</p>
+                    <button id="invisible">Engage Invisibility</button><button id="visible" style="visibility:hidden;">Remove Invisibility</button>
+                    <p>Code: <pre>&#09;//This will hide the paragraph using visibility<br />&#09;document.getElementById("invisible").onclick=function() {<br />&#09;&#09;document.getElementById("invisible").style.visibility='hidden';<br />&#09;&#09;document.getElementById("visibility").style.visibility='hidden';<br />&#09;&#09;document.getElementById("visible").style.visibility='visible';<br />&#09;}<br /><br />&#09;//This will show the paragraph using visibility<br />&#09;document.getElementById("visible").onclick=function() {<br />&#09;&#09;document.getElementById("visible").style.visibility='hidden';<br />&#09;&#09;document.getElementById("visibility").style.visibility='visible';<br />&#09;&#09;document.getElementById("invisible").style.visibility='visible';<br />&#09;&#09;}</pre></p>
+                    <h3>Variables</h3>
+                    <p>Variables allow you to simplify your javascript code by assigning strings of code to a shorter name.  Variables also allow you to create more complex code.</p>
+                    <p id="testP" class="example">This is some sample text.</p>
+                    <button id="cover">Cover</button><button id="uncover" style="display:none;">Uncover</button>
+                    <p>Code: <pre>&#09;//sets varialbles to replace the calls to the buttons and paragraph<br />&#09;var coverBut = document.getElementById("cover");<br />&#09;var uncoverBut = document.getElementById("uncover");<br />&#09;var testPara = document.getElementById("testP");<br /><br />&#09;//This hides a paragraph and swaps buttons using a combination of<br />&#09;//visibility and display<br />&#09;coverBut.onclick=function() {<br />&#09;&#09;coverBut.style.display='none';<br />&#09;&#09;testPara.style.visibility='hidden';<br />&#09;&#09;uncoverBut.style.display='inline';<br />&#09;}<br /><br />&#09;//This hides a paragraph and swaps buttons using a combination of<br />&#09;//visibility and display<br />&#09;uncoverBut.onclick=function() {<br />&#09;&#09;uncoverBut.style.display='none';<br />&#09;&#09;testPara.style.visibility='visible';<br />&#09;&#09;coverBut.style.display='inline';<br />&#09;}</pre></p>
+                    <p>An input can be used as kind of a temporary variable to retrieve and/or utilize user input.</p>
+                    <p id="userChange" class="example">Replace this text with your own words.</p>
+                    <input id="userInput" type="text" placeholder="enter your text here" />
+                    <button id="changeText">Change Text</button> <button id="resetP">reset</button>
+                    <p>Code: <pre>&#09;//establishes variables and changes paragraph text to reflect user<br />&#09;//input on Change Text button click and resets text on reset click<br />&#09;var defaultText = "Replace this text with your own words.";<br />&#09;var changeText = document.getElementById("changeText");<br />&#09;var resetP = document.getElementById("resetP");<br />&#09;var userChange = document.getElementById("userChange");<br />&#09;var userInput = document.getElementById("userInput");<br />&#09;var newText = userInput;<br /><br />&#09;changeText.onclick = function change () {<br />&#09;&#09;newText = userInput.value;<br />&#09;&#09;userChange.innerHTML = newText;<br />&#09;&#09;userInput.value='';<br />&#09;}<br /><br />&#09;resetP.onclick = function reset () {<br />&#09;&#09;userChange.innerHTML = defaultText;<br />&#09;}</pre></p>
+                    <h3>Arrays</h3>
+                    <p>Arrays are similar to variables in that they hold values but arrays are capable of holding lots of values at one time.</p>
+                    <p>One way to define an array is to use var and new Array() like this:</p>
+                    <p class="center">var myArray = new Array();</p>
+                    <p>Then you can add individual values to the array like this:</p>
+                    <p class="center">myArray[0] = "value1";<br />myArray[1] = "value2";<br />etc...</p>
+                    <p>Note that the numbering of an array starts with 0 not 1.</p>
+                    <p id="favFood" class="example">One of my favorite food is </p><br />
+                    <button id="zero">?</button> <button id="one">?</button> <button id="two">?</button> <button id="three">?</button> <button id="four">?</button> <button id="resetFood">reset</button>
+                    <p>Code: <pre>&#09;//establishes an array of my favorite foods<br />&#09;//sets variables, retrieves value from array based on user button click<br />&#09;//adds selected array value to current paragraph<br />&#09;var foodArray = new Array();<br />&#09;&#09;foodArray[0] = "pizza";<br />&#09;&#09;foodArray[1] = "chocolate";<br />&#09;&#09;foodArray[2] = "jelly beans";<br />&#09;&#09;foodArray[3] = "cheeseburgers";<br />&#09;&#09;foodArray[4] = "bacon";<br />&#09;var defaultP = "One of my favorite foods is ";<br />&#09;var favFood = document.getElementById("favFood");<br />&#09;var selectedFood = "";<br />&#09;var zero = document.getElementById("zero");<br />&#09;var one = document.getElementById("one");<br />&#09;var two = document.getElementById("two");<br />&#09;var three = document.getElementById("three");<br />&#09;var four = document.getElementById("four");<br />&#09;var resetFood = document.getElementById("resetFood");<br /><br />&#09;zero.onclick = function zerochoice () {<br />&#09;&#09;selectedFood = foodArray[0];<br />favFood.innerHTML = defaultP + selectedFood + ".";<br />&#09;}<br /><br />&#09;one.onclick = function onechoice () {<br />&#09;&#09;selectedFood = foodArray[1];<br />&#09;&#09;favFood.innerHTML = defaultP + selectedFood + ".";<br />&#09;}<br /><br />&#09;two.onclick = function twochoice () {<br />&#09;&#09;selectedFood = foodArray[2];<br />&#09;&#09;favFood.innerHTML = defaultP + selectedFood + ".";<br />&#09;}<br /><br />&#09;three.onclick = function threechoice () {<br />&#09;&#09;selectedFood = foodArray[3];<br />&#09;&#09;favFood.innerHTML = defaultP + selectedFood + ".";<br />&#09;}<br /><br />&#09;four.onclick = function fourchoice () {<br />&#09;&#09;selectedFood = foodArray[4];<br />&#09;&#09;favFood.innerHTML = defaultP + selectedFood + ".";<br />&#09;}<br /><br />&#09;resetFood.onclick = function resetFood () {<br />&#09;&#09;selectedFood = "";<br />&#09;&#09;favFood.innerHTML = defaultP;<br />&#09;}</pre></p>
+                    <p>You can use the console window in the developer's tools to see the entire contents of your array.  In Chrome I just press ctrl + shift + i then select "console" from top menu.</p>
+                    <p>You can use the button below to log the contents of the food array in the previous examle to the console window.</p>
+                    <button id="logArray">Log Array</button>
+                    <p>Code: <pre>&#09;//logs contents of foodArray to console window<br />&#09;document.getElementById("logArray").onclick = function  () {<br />&#09;&#09;console.log(foodArray);<br />&#09;}</pre></p>
+                    <p>There are other ways to define arrays:</p>
+                    <p class="center">my2ndArray=["rain","sun"]; //creates an array containing rain &amp; sun</p>
+                    <div class="center"><button id="log1">check array log</button></div>
+                    <p>You can add elements to an array using:</p>
+                    <p class="center">my2ndArray.push("snow"); //adds snow at the end of the array</p>
+                    <div class="center"><button id="log2" style="visibility:hidden;">check array log</button></div>
+                    <p>We can remove an item or items from an array or insert an item in a specific position using splice.</p>
+                    <p class="center">my2ndArray.push("snow"); //adds snow a 2nd time</p>
+                    <div class="center"><button id="log3" style="visibility:hidden;">check array log</button></div>
+                    <p class="center">my2ndArray.splice(3,1); //starts at 3 position and removes 1 element</p>
+                    <div class="center"><button id="log4" style="visibility:hidden;">check array log</button></div>
+                    <p class="center">my2ndArray.splice(1,0,"hail"); //adds hail between rain and sun</p>
+                    <div class="center"><button id="log5" style="visibility:hidden;">check array log</button></div>
+                    <div class="center"><button id="logreset">reset</button></div>
+                    <p>Adding .length after the array name in a console.log will tell you the number of elements in an array.</p>
+                    <p class="center">console.log(my3rdArray.length);</p>
+                    <div class="center"><button id="length">3rd Array Length</button><button id="contents">3rd Array Contents</button></div>
+                    <h3>If Statements</h3>
+                    <p>If statements allow for alternate actions dependent on the truth of a condition.  If it is raining -> wear a raincoat  Using else if and else in conjunction with the if allow for greater options...  If it is raining -> wear a raincoat, else if it is snowing -> wear a snowsuit, else just go out and play</p>
+                    <p id="ifExample" class="example">Please enter a number between 1 and 10.</p>
+                    <input type="text" id="ifResponse" placeholder="enter number here" />
+                    <button id="ifSubmit">Submit</button>
+                    <p>Code: <pre>&#09;//compares user answer to requested number range and gives appropriate response<br />&#09;var ifExample = document.getElementById("ifExample");<br />&#09;var ifResponse = document.getElementById("ifResponse");<br />&#09;var ifSubmit = document.getElementById("ifSubmit");<br />&#09;var newResponse = "";<br /><br />&#09;ifSubmit.onclick = function ifTest() {<br />&#09;&#09;newResponse = ifResponse.value;<br />&#09;&#09;if (newResponse >= 1 && newResponse <= 10) {<br />&#09;&#09;&#09;ifExample.innerHTML = "Please enter a number between 1 and 10.";<br />&#09;&#09;&#09;alert("Thanks for cooperating!");<br />&#09;&#09;} else if (newResponse < 1) {<br />&#09;&#09;&#09;ifExample.innerHTML = newResponse + " is less than 1.  Please enter a number between 1 and 10.";<br />&#09;&#09;} else if (newResponse > 10) {<br />&#09;&#09;&#09;ifExample.innerHTML = newResponse + " is greater than 10.  Please enter a number between 1 and 10.";<br />&#09;&#09;} else {<br />&#09;&#09;&#09;ifExample.innerHTML = newResponse + " is not a number.  Please enter a number between 1 and 10.";<br />&#09;&#09;}<br />&#09;&#09;ifResponse.value='';<br />&#09;}</pre></p>
+                    <h3>For Loops</h3>
+                    <p>For loops allow you to repeat a process for a specified number of times or until a limit value is reached.  For example, if I wanted to iterate through an array and save it's contents to a string to be printed on the screen instead of having to look at the console to check the array's values.</p>
+                    <div id="arrayContents">
+                    
+                    </div>
+                    <button id="revealContents">Reveal Contents</button><button id="hideContents" style="display:none;">Hide Contents</button>
+                    <p>Note you can use HTML formatting in your string to make the output look any way you want.  I choose to have my array contents output as an ordered list that started at 0 to reflect the numbering of the array itself.</p>
+                    <p>Code: <pre>&#09;//establishes an array of elements, loops through the array storing<br />&#09;//the values in a formatted string, adds the string to the arrayContents<br />&#09;//div for the user to see, then offers reset which resets colorList<br />&#09;//and empties arrayContents div<br />&#09;var favColors = ["blue","silver","pink","brown","grey"];<br />&#09;var colorList = "&lt;ol start=\"0\"&gt;";<br /><br />&#09;document.getElementById("revealContents").onclick = function showArray() {<br />&#09;&#09;document.getElementById("revealContents").style.display="none";<br />&#09;&#09;for ( var i=0; i&lt;favColors.length; i++) {<br />&#09;&#09;&#09;colorList = colorList + "&lt;li&gt;" + favColors[i] + "&lt;/li&gt;";<br />&#09;&#09;}<br />&#09;&#09;colorList = colorList + "&lt;/ol&gt;";<br />&#09;&#09;document.getElementById("arrayContents").innerHTML = colorList;<br />&#09;&#09;document.getElementById("hideContents").style.display="inline";<br />&#09;}<br /><br />&#09;document.getElementById("hideContents").onclick = function hideArray() {<br />&#09;&#09;document.getElementById("hideContents").style.display="none";<br />&#09;&#09;document.getElementById("arrayContents").innerHTML = "";<br />&#09;&#09;colorList = "&lt;ol start=\"0\"&gt;";<br />&#09;&#09;document.getElementById("revealContents").style.display="inline";<br />&#09;}</pre></p>
+                   <h3>While Loops</h3>
+                   <p>Like for loops, While Loops allow you to iterate through a process. The cool thing is they work when you don't know how many times you need to perform the loop.  If the condition of your while loop must be true then the loop will stop when the condition becomes false.  Likewise, if the condition must be false, the loop will stop when the condition becomes true.</p>
+                   <div class="example">
+                        <p id="whileMessage">See my favorite colors.</p>
+                        <p id="whileOutput">&nbsp;</p>
+                        <button id="whileView">view</button><button id="whileClear" style="display:none;">clear</button>
+                        <p>Code: <pre>&#09;//uses a while loop to output contents of an array or clear<br />&#09;//output on button click<br />&#09;var view = document.getElementById("whileView");<br />&#09;var clear = document.getElementById("whileClear");<br />&#09;var i = 0;<br />&#09;var colorString = "";<br />&#09;var output = document.getElementById("whileOutput");<br /><br />&#09;view.onclick = function viewColors() {<br />&#09;&#09;view.style.display = "none";<br />&#09;&#09;while ( i < favColors.length) {<br />&#09;&#09;&#09;if (colorString == "") {<br />&#09;&#09;&#09;&#09;colorString = favColors[i];<br />&#09;&#09;&#09;} else {<br />&#09;&#09;&#09;&#09;colorString = colorString + ", " + favColors[i];<br />&#09;&#09;&#09;}<br />&#09;&#09;&#09;i++;<br />&#09;&#09;}<br />&#09;&#09;output.innerHTML = colorString;<br />&#09;&#09;clear.style.display = "inline";<br />&#09;}<br /><br />&#09;clear.onclick = function clearColors() {<br />&#09;&#09;i = 0;<br />&#09;&#09;colorString = "";<br />&#09;&#09;output.innerHTML = "&nbsp;";<br />&#09;&#09;clear.style.display = "none";<br />&#09;&#09;view.style.display = "inline";<br />&#09;}</pre></p>
+                        <h3>Functions</h3>
+                        <p>Functions are a way of breaking code into more manageable blocks that are easier to read and reusable.  You define a function by using the word <span style="color:#00f; font-weight:bold;">function</span> followed by a name, typically using camel case, like <span style="color:#222;">alertMe</span> and then parentheses ().  The code that makes up the function is contained inside curly braces {} after the parentheses.  Functions can have variables inside their parentheses, you can then pass a values for each variable in the function when you call it.</p>                        
+                   </div>
+                </div>
+                <div id="external">
+                <h2>External</h2>
+                <p>Like CSS, it doesn't take long for javascript to overwhelm an HTML file.  Also like CSS, the solution to the problem is creating an separate, or external, file to hold the javascript.</p>
+                <p>To make your external javascript file you simply copy all the code between your script tags, name it, and add .js to the end of the name.  Then add a src="yourfile.js" to your opening script tag and your page will run just like it did when the code was in the page but it will be a lot easier to read.</p>
+                </div>
+            </div>
+            <div id="footer">
+                &copy; 2015 Tricia A. Sales
+            </div>
+        </div>
+        <script type="text/javascript" src="Scripts/scripts.js"></script>
+    </body>
+</html>

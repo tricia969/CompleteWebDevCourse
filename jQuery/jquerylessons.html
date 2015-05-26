@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            //load menu
+            $.ajax ({
+                //retrieve menu page
+                url: "../menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#jquery").attr("id","current");
+                //mark active page
+                $("#jq1").attr("id","subcur");
+            });
+        </script>
+        <title>Learning JQuery</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="../style.css" />
+        <link rel="stylesheet" type="text/css" href="jqstyle.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="titlebar">
+                    <h1>Chaton Web Technology</h1>
+                </div>
+                <div id="mainmenu">
+                    
+                </div>
+            </div>
+            <div id="content">
+                <h2>jQuery</h2>
+                <p>jQuery is a javascript library that sits on top of javascript and allows you to access certain functions more easily. It also qives you a bit more power allowing you to create complex interactive web apps more easily.</p>
+                <p>There are a wide assortment of plugins that expand the functionality of jQuery.  One plugin most smartphone and tablet users will recognize is the pull to refresh plugin that refreshes the page when the uses swipes down on the top of the page. Another useful plugin is jQuery UI (user interface) which assists in creating dragable, dropable, and sortable elements to web apps.</p>
+                <h3>Embedding jQuery</h3>
+                <p>You can go to jQuery.com and download one of the available versions of jquery which will allow you to control which version of jquery you are coding against and to work offline.  You can also link to jQuery.com or google's online code library which will always be the most current version and will tend to load faster than from your own site.</p>
+                <p>Regardless of your jQuery source you include it in a page by using script tags just like you did for javascript.</p>
+                <pre>&lt;script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"&gt;&lt;/script&gt;</pre>
+                <pre>jquery.com:  http://code.jquery.com/jquery-latest.min.js</pre>
+                <pre>Google:  https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js</pre>
+                <p>This page will alert if jQuery is not installed or accessible on load.</p>
+                <pre>Code:  <br />&#09;if (typeof jQuery == "undefined") {<br />&#09;&#09;alert("¡jQuery is not installed!");<br />&#09;}</pre>
+                <h3>Detecting A Click</h3>
+                <div class="square" name="square1"></div>
+                <div id="circle"></div>
+                <div class="square" name="square2"></div>
+                <div class="clearboth"></div>
+                <p><span class="gold">Javascript</span> and <span class="brblue">jQuery</span> differ a little in syntax.  Instead of calling <span class="gold">document.getElementById("idName")</span> for an element with an id you would use <span class="brblue">$("#idName")</span>.  You can also call elements by class <span class="brblue">$(".className")</span>, or by element type <span class="brblue">$("div")</span>.  Additionally, you can name an instance of an element and then call the element by it type and name <span class="brblue">$("div[name='divName']")</span>, which allows for identically styled divs to receive different actions/instructions.</p>
+                <pre>Code:  <br />&#09;$("div[name='square1']").click (function() {<br />&#09;&#09;alert ("Left square clicked!");<br />&#09;})<br /><br />&#09;var click = false;<br />&#09;$("#circle").click(function(){<br />&#09;&#09;if (click == false) {<br />&#09;&#09;&#09;$("#circle").css("border","2px solid red").css("background","transparent").css("width","196px").css(<br />&#09;&#09;&#09;&#09;"height","196px").css("border-radius","98px");<br />&#09;&#09;&#09;click = true;<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$("#circle").css("border","none").css("background","red").css("width","200px").css("height","200px"<br />&#09;&#09;&#09;&#09;).css("border-radius","100px");<br />&#09;&#09;&#09;click = false;<br />&#09;&#09;}<br />&#09;})<br /><br />&#09;var clicked = false;<br />&#09;$("div [name='square2']").click (function () {<br />&#09;&#09;if ( clicked == false ) {<br />&#09;&#09;&#09;$("div [name='square2']").css("background","green");<br />&#09;&#09;&#09;clicked = true;<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$("div [name='square2']").css("background","Chartreuse");<br />&#09;&#09;&#09;clicked = false;<br />&#09;&#09;}<br />&#09;})</pre>
+                <h3>Changing Website Content</h3>
+                <p id="changeMe">We can use jQuery to change content similar to the way we change content with plain javascript. Click the circle below to see it in action.</p>
+                <div id="changeP"></div>
+                <pre>Code:  <br />&#09;var change = false;<br />&#09;$("#changeP").click (function () {<br />&#09;&#09;if (change == false) {<br />&#09;&#09;&#09;$("#changeMe").html("The text has been changed! Click again to change it back.");<br />&#09;&#09;&#09;change = true;<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$("#changeMe").html("We can use jQuery to change content similar to the way we change content with plain<br />&#09;&#09;&#09;&#09;javascript. Click the circle below to see it in action.");<br />&#09;&#09;&#09;change = false;<br />&#09;&#09;}<br />&#09;})</pre>
+                <p id="retrieveMe">You can also retrieve contents using the .html function in jQuery.</p>
+                <div id="retrieveP"></div>
+                <pre>Code:  <br />&#09;$("#retrieveP").click (function () {<br />&#09;&#09;alert($("#retrieveMe").html());<br />&#09;})</pre>
+                <p>The above examples demonstrate a fairly consistent trait of jQuery.  When function brackets are empty they return the value of the attribute.  When they contain data they update the value of the attribute.</p>
+                <p id="redText">.hover allows you to update or return a value on hover instead of on click.  Note that the original state does not automatically revert when you move the pointer out of hover range.</p>
+                <div id="makeRed"></div>
+                <p>By using the calls to specific mouse events, like mouseenter, mouseleave, mouseover, mouseout, etc. you can achieve different effects.</p>
+                <iframe src="blue.html"></iframe>
+                <div id="updateIframe"></div>
+                <pre>Code:  <br />&#09;var site = $("iframe").attr("src");<br />&#09;$("#updateIframe").mouseenter (function () {<br />&#09;&#09;if ( site == "blue.html" ) {<br />&#09;&#09;&#09;$("iframe").attr("src","red.html");<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$("iframe").attr("src","blue.html");<br />&#09;&#09;}<br />&#09;&#09;site = $("iframe").attr("src");<br />&#09;})</pre>
+                <h3>Changing Styles</h3>
+                <p>Changing styles is very much like changing content you just use the css function (.css) instead of the html function (.html).</p>
+                <div class="square" name="alertWidth"></div>
+                <pre class="clearboth">Code:  <br />&#09;$("div [name = 'alertWidth']").click (function () {<br />&#09;&#09;alert ($("div [name = 'alertWidth']").css("width"));<br />&#09;})</pre>
+                <p>To make it report the height of any div on the page we can code it like this...</p>
+                <pre>Code:  <br />&#09;//Disabled because it drives me nuts<br />&#09;/*$("div").click (function () {<br />&#09;&#09;alert ("height = " + $(this).css("height"));<br />&#09;})*/</pre>
+                <p>And it is easy to change the value of a style as well...</p>
+                <div id="hotPink"></div>
+                <pre>Code:  <br />&#09;$("#hotPink").hover (function () {<br />&#09;&#09;if( $("#hotPink").css("width") == "150px" ) {<br />&#09;&#09;&#09;$("#hotPink").css("width","300px");<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$("#hotPink").css("width","150px");<br />&#09;&#09;}<br />&#09;})</pre>
+                <p>And just like with javascript you can change the visibility or display value to make an element "disappear". The objects below operate on mouseout and mouseleave</p>
+                <div id="yellow"></div><div id="aqua"></div>
+                <pre class="clearboth">Code:  <br />&#09;$("#yellow").mouseout (function () {<br />&#09;&#09;$("#yellow").hide();<br />&#09;&#09;$("#aqua").css("visibility","visible");<br />&#09;})<br /><br />&#09;$("#aqua").mouseleave (function () {<br />&#09;&#09;("#aqua").css("visibility","hidden");<br />&#09;&#09;$("#yellow").show();<br />&#09;})</pre>
+                <div id="controlCircle"></div><div class="tinySquare"></div><div class="tinySquare"></div><div class="tinySquare"></div>
+                <pre class="clearboth">Code:  <br />&#09;$("#controlCircle").click (function () {<br />&#09;&#09;if ( $(".tinySquare").css("display") != "none" ) {<br />&#09;&#09;&#09;$(".tinySquare").fadeOut(5000);<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$(".tinySquare").fadeIn(5000);<br />&#09;&#09;}<br />&#09;})</pre>
+                <h3>Fading Content</h3>
+                <p>JQuery has both fadeOut and fadeIn functions with a variety of controllable features.  Checking the jQuery api when you encounter a new function is a great way to learn how to use it.</p>
+                <pre>jQuery api: https://api.jquery.com/</pre>
+                <p id="fadeMe">This is just a random paragraph of text to show the fade functionality available in jQuery.</p>
+                <button id="fadeIt">Fade Out</button>
+                <h3>Animating Content</h3>
+                <p>JQuery handles animations very well and fading is just one of the animations built into it. Other jQuery animations include slide, toggle, and the ability to construct custom styling for animation.</p>
+                <p>The circle below will grow or shrink on click, depending on it's current size.</p>
+                <div id="growingCircle"></div>
+                <pre>Code:  <br />&#09;$("#growingCircle").click( function () {<br />&#09;&#09;if ($(this).css("width") == "50px") {<br />&#09;&#09;&#09;$(this).animate({<br />&#09;&#09;&#09;&#09;width:"200px",<br />&#09;&#09;&#09;&#09;height:"200px",<br />&#09;&#09;&#09;&#09;borderRadius:"100px",<br />&#09;&#09;&#09;&#09;margin:"40px"<br />&#09;&#09;&#09;},500);<br />&#09;&#09;} else {<br />&#09;&#09;&#09;$(this).animate({<br />&#09;&#09;&#09;&#09;width:"50px",<br />&#09;&#09;&#09;&#09;height:"50px",<br />&#09;&#09;&#09;&#09;borderRadius:"25px",<br />&#09;&#09;&#09;&#09;margin:"10px"<br />&#09;&#09;&#09;},500);<br />&#09;&#09;}<br />&#09;});</pre>
+                <p>The circle below will grow, hold for 2 seconds, then shrink back to it's starting size.</p>
+                <div id="growCircle"></div>
+                <pre>Code:  <br />&#09;$("#growCircle").click(function () {<br />&#09;&#09;$(this).animate ( {<br />&#09;&#09;&#09;width:"200px",<br />&#09;&#09;&#09;height:"200px",<br />&#09;&#09;&#09;borderRadius:"100px",<br />&#09;&#09;&#09;margin:"40px"<br />&#09;&#09;}, 500, function () {<br />&#09;&#09;&#09;$(this).delay (2000).animate ( {<br />&#09;&#09;&#09;&#09;width:"50px",<br />&#09;&#09;&#09;&#09;height:"50px",<br />&#09;&#09;&#09;&#09;borderRadius:"25px",<br />&#09;&#09;&#09;&#09;margin:"10px"<br />&#09;&#09;&#09;}, 500);<br />&#09;&#09;});<br />&#09;});</pre>
+                <h3>Loading Data with AJAX</h3>
+                <p>AJAX stands for Asynchronous Javascript And XML.  AJAX is a powerful javascript tool that works particularly well with jQuery.  Asynchronous means that it runs in the background and other code can run in the foreground at the same time. AJAX won't run on the file protocol it needs to be run online.</p>
+                <p>The get() function will allow you to access other files but if there is a problem (like no internet) there is no way to let the user know. The ajax() function is more flexible and will let you define an action to be taken if the retrieval fails.</p>
+                <p id="ajaxChange">Paragraph to be changed.</p>
+                <p id="ajaxAppend">This paragraph will have content added to it via append().</p>
+                <pre>Code:<br />&#09;$.get("test.html",function (data) {<br />&#09;&#09;alert(data);<br />&#09;});<br /><br />&#09;$.ajax({<br />&#09;&#09;url: "test2.html"<br />&#09;}).done (function (data) {<br />&#09;&#09;alert(data);<br />&#09;});<br /><br />&#09;$.ajax ({<br />&#09;&#09;url: "test3.html"<br />&#09;}).done (function (data) {<br />&#09;&#09;$("#ajaxChange").html(data);<br />&#09;});<br /><br />&#09;$.ajax ({<br />&#09;&#09;url: "test4.html"<br />&#09;}).done (function (data) {<br />&#09;&#09;$("#ajaxAppend").append(data);<br />&#09;});</pre>
+                <h3>Regular Expressions</h3>
+                <p>Regular expressions are not exclusive to jQuery or javascript, they are available in all programming languages.  A regular expression is a pattern of characters that you can use to determine if a string is of a desired format (like phone number or email address).</p>
+                <p>To define a regular expression we use <span class="blue">var regex = /term/;  stringBeingChecked.match(regex);</span>  If the defined term is found in the string it returns the value of the regex/term, otherwise it returns null. If you want to make use of the return value you should store it in a variable: <span class="blue">var result = stringBeingChecked.match(regex);</span></p>
+                <p id="regexSearch">There are four flags that can be added after your regex term that expand it's functionality.  i allows for a case-insensitive search, g searches for every match in the string, m is for a multi-line search, and y is a "sticky" search that starts at the current point in the target string. These flags can be use separately or together.</p>
+                <p>The paragraph below shows the results of an ig flagged search for /that/ on the paragraph above.</p>
+                <p id="regexResult"></p>
+                <p>The word /that/ is found 3 times in the searched paragraph.</p>
+                <pre>Code:  <br />&#09;var regex = /that/ig;<br />&#09;$("#regexResult").html($("#regexSearch").html().match(regex));</pre>
+                <p>While it may not seem very useful in the previous example it actually allows for many useful comparisons and validations.  You can ensure that a user enters an email address, phone number, or a password with the required capital, number, and special character.</p>
+                <h3>jQuery UI</h3>
+                <p>This is a User Interface plugin that makes it easy to set up interactive elements on your web page.  Just like jQuery you need to embed the plugin into your page via either a local copy or remote version.</p>
+                <div id="dragSquare"></div>
+                <pre>Code:  <br />&#09;$("#dragSquare").draggable();</pre>
+                <h3>Draggables &amp; Resizables</h3>
+                <p>Draggable and resizable elements are very useful and really simple using jQuery UI.</p>
+                <div id="dragMe">Drag Me Around</div>
+                <pre>Code:  <br />&#09;$("#dragMe").draggable();</pre>
+                <div id="resizeMe">Resize Me Please</div>
+                <pre>Code:  <br />&#09;$("#resizeMe").resizable();</pre>
+                <h3>Droppables</h3>
+                <p>Droppables extends the functionality of draggable by allowing you to drop the dragged element into another element.
+                <div id="dropSquare">drag &amp; drop</div>
+                <div id="dropTarget">Drop Zone</div>
+                <pre class="clearboth">Code:  <br />&#09;$("#dropSquare").draggable();<br />&#09;$("#dropTarget").droppable ({<br />&#09;&#09;drop: function(ui, event) {<br />&#09;&#09;&#09;$("#dropTarget").css("background","pink").css("width","296px").css("height","296px").css("border","2px <br />&#09;&#09;&#09;&#09;solid DeepPink").css("color","black");<br />&#09;&#09;}<br />&#09;});</pre>
+                <h3>Accordion &amp; Sortables</h3>
+                <h4>Accordion</h4>
+                <p>Allows the content to be collapsed so that the user can open a single content area at a time and not be overwhelmed by too much text.</p>
+                <div id="accordion">
+                    <h5>Title 1</h5>
+                    <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.</p>
+                    <h5>Title 2</h5>
+                    <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.</p>
+                    <h5>Title 3</h5>
+                    <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.</p>
+                    <h5>Title 4</h5>
+                    <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.</p>
+                    <h5>Title 5</h5>
+                    <p>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.</p>
+                </div>
+                <pre>Code:  <br />&#09;$("#accordion").accordion({<br />&#09;&#09;collapsible: true,<br />&#09;&#09;animate: 200<br />&#09;});</pre>
+                <h4>Sortables</h4>
+                <p>This function allows the user to sort a list of items you've created on your page.</p>
+                <p>Please sort these items from favorite to least favorite.</p>
+                <ul id="sortable">
+                    <li id="jellybeans">Jelly Beans</li>
+                    <li id="chocolate">Chocolate</li>
+                    <li id="pizza">Pizza</li>
+                    <li id="roastbeef">Roast Beef</li>
+                    <li id="strawberries">Strawberries</li>
+                </ul>
+                <pre>Code:  <br />&#09;$("#sortable").sortable();</pre>
+            </div>
+            <div id="footer">
+                &copy; 2015 Tricia A. Sales
+            </div>
+        </div>
+        <script type="text/javascript" src="Scripts/jqscripts.js"></script>
+        
+    </body>
+</html>

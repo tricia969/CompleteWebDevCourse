@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            //load menu
+            $.ajax ({
+                //retrieve menu page
+                url: "menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#home").attr("id","current");
+                //mark active page
+                
+            });
+        </script>
+        <title>Chaton Web Technology (Project #2)</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="titlebar">
+                    <h1>Chaton Web Technology</h1>
+                </div>
+                <div id="mainmenu">
+                    
+                </div>
+            </div>
+            <div id="content">
+                <div style="height:400px;"></div>
+            </div>
+            <div id="footer">
+                &copy; 2015 Tricia A. Sales
+            </div>
+        </div>
+    </body>
+</html>

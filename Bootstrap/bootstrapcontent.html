@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            //load menu
+            $.ajax ({
+                //retrieve menu page
+                url: "../menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#bootstrap").attr("id","current");
+                //mark active page
+                $("#tb1").attr("id","subcur");
+            });
+        </script>
+        <title>Learning Bootstrap</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <!-- Bootstrap -->
+        <link href="CSS/bootstrap.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="tbstyle.css">
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="Scripts/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div id="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="titlebar">
+                        <h1>Tricia's Web Design</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="mainmenu">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div id="content">
+                <h2>Bootstrap</h2>
+                <p>Bootstrap is an opensource, completely free web framework from Twitter that allows you to create good-looking, responsive websites.  Because users access the web from a variety of devices a page needs to look good on the small screen of a phone and on a tv sized screen.  Responsive sites change layout and element size as screen size changes.</p>
+                <p>Like jQuery you can download a specific version of bootstrap and include it with your site files or you can use a hosted version that is always the most recent, stable version available.</p>
+                <h3>The Grid System</h3>
+                <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes predefined classes for easy layout options, as well as powerful mixins for generating more semantic layouts.</p>
+                <p>Breakpoints, widths at which the layout changes, rearrange the grid elements so that viewing is optimized at every viewing size</p>
+                <p>Bootstrap pages are set out as a series of rows and columns with nearly limitless combinations.  Bootstrap comes with it's own css that allows it to respond appropriately to varying breakpoints.</p>
+                <h3>Navbars</h3>
+                <p>Bootstrap comes with a lot of built in functionality.  One of these is the navbar classes that allow you to quickly and simply build fully responsive navigation on your site.</p>
+                <p>While some of the code involved in navbars and other built in functionality can be complex there are many good starter examples avialable at <a href="http://getbootstrap.com/"target="_blank">getbootstrap.com</a> in the CSS, Components, and JavaScript sections.</p>
+                <h3>Forms &amp; Tables</h3>
+                
+             </div>
+            <div id="footer">
+                &copy; 2015 Tricia A. Sales
+            </div>
+        </div>
+        <script type="text/javascript">
+            
+            //try reloading menu
+            $.ajax ({
+                //retrieve menu page
+                url: "../menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#bootstrap").attr("id","current");
+                //mark active page
+                $("#tb1").attr("id","subcur");
+            });
+        </script>
+        <!--script type="text/javascript" src="Scripts/tbscripts.js"></script-->
+    </body>
+</html>

@@ -1,0 +1,396 @@
+p {
+            color:red;
+        }
+        
+        .tiny {
+            font-size:75%;
+        }
+        
+        .purple {
+            color:purple;
+        }
+        
+        @font-face {
+            font-family: Vladimir;
+            src: url(Fonts/vladimir-webfont.woff);
+        }
+        
+        #curly {
+            font-family:Vladimir;
+        }
+        
+        #big {
+            font-size:125%;
+        }
+        
+        .blue {
+            color:blue;
+        }
+        
+        .curlygreen {
+            font-family:Vladimir;
+            font-size: 135%;
+            color:green;
+        }
+        
+        .underline {
+            text-decoration:underline;
+        }
+        
+        .italics {
+            font-style: italic;
+        }
+        
+        .bold {
+            font-weight:bold;
+        }
+        
+        .bluebox {
+            background: blue;
+            color: white;
+            width: 300px;
+        }
+        
+        .pinkbox {
+            background: pink;
+            color: blue;
+            width:500px;
+            height:250px;
+        }
+        
+        .yellowbox {
+            background: yellow;
+            width:600px;
+        }
+        
+        .yellowbox p {
+            color: purple;
+        }
+        
+        .colorful {
+            background:#fe90e3;
+        }
+        
+        .colorful p {
+            color:#57587b;
+        }
+        
+        .left50 {
+            width:50%;
+            float: left;
+        }
+        
+        .right50 {
+            width:50%;
+            float: right;
+        }
+        
+        .left33 {
+            width: 33%;
+            float: left;
+        }
+        
+        .right33 {
+            width: 33%;
+            float: right;
+        }
+        
+        .clearboth {
+            clear: both;
+        }
+        
+        .graybox {
+            background:gray;
+            width: 20%;
+            position: fixed;
+            right:10px;
+            top:100px;
+        }
+        
+        .graybox p {
+            color:LightPink;
+        }
+        
+        .purplebox {
+            background:#7f44b0;
+            width:45%;
+            position:relative;
+            left:100px;
+            top:50px;
+        }
+        
+        .purplebox p {
+            color:#fff;
+            margin: 5px;
+        }
+        
+        .orangebox {
+            background:#eb7833;
+            width:45%;
+            position:relative;
+            left:15px;
+            top:5px;
+        }
+        
+        .orangebox p {
+            color: #000;
+            margin: 5px;
+        }
+        
+        .purplebox2 {
+            background:#7f44b0;
+            width:45%;
+            position:relative;
+            left:100px;
+            top:50px;
+            z-index:1;
+        }
+        
+        .purplebox2 p {
+            color:#fff;
+            margin: 5px;
+        }
+        
+        .orangebox2 {
+            background:#eb7833;
+            width:45%;
+            position:relative;
+            left:15px;
+            top:5px;
+            z-index:-1;
+        }
+        
+        .orangebox2 p {
+            color: #000;
+            margin: 5px;
+        }
+        
+        .greenbox {
+            background:SlateBlue;
+            width:45%;
+            position:absolute;
+            right:5px;
+            top:3950px;
+            z-index: 0;
+        }
+        
+        .greenbox p {
+            color:YellowGreen;
+        }
+        
+        .pinky {
+            background:#F6CEEC;
+            width:85%;
+            margin:50px;
+        }
+        
+        .pinky p {
+            color:#29088A;
+        }
+        
+        .bluebell {
+            background:#0174DF;
+            width:85%;
+            margin: 50px 10px 10px 100px;
+        }
+        
+        .bluebell p {
+            color:#0A0A2A;
+        }
+        
+        .blackout {
+            background:#000;
+            width:75%;
+            margin-left: 25%;
+            margin-top:-20px;
+        }
+        
+        .blackout p {
+            color:#fff;
+        }
+        
+        .goldpad {
+            background: GoldenRod;
+            width: 250px;
+            padding: 15px;
+        }
+        
+        .goldpad p {
+            margin: 0;
+            color: DimGray;
+        }
+        
+        .greenpad {
+            background: LawnGreen;
+            width: 500px;
+            padding: 50px 150px;
+        }
+        
+        .greenpad p {
+            margin: 0;
+            color: RebeccaPurple;
+        }
+        
+        .silverpad {
+            background: Silver;
+            width: 150px;
+            padding-left: 75px;
+            padding-top: 25px;
+        }
+        
+        .silverpad p {
+            color: DarkSlateBlue;
+            margin:0;
+        }
+        
+        .hundredsq {
+            width: 100px !important;
+            height: 100px !important;
+            float: left;
+            margin: 20px;
+            padding: 0 !important;
+        }
+        
+        .redbordered {
+            background: red;
+            padding: 10px;
+            border: 20px yellow dotted;
+        }
+        
+        .redbordered p {
+            color: white;
+        }
+        
+        .bluebordered {
+            background: blue;
+            padding: 10px;
+            border-style: ridge solid dotted dashed;
+            border-width: 10px 7px 5px 3px;
+            border-color: green yellow pink grey;
+        }
+        
+        .bluebordered p {
+            color: pink;
+        }
+        
+        .greenbordered {
+            background: green;
+            width: 300px;
+            height: 300px;
+            padding: 75px;
+            border-radius: 50%;
+        }
+        
+        .greenbordered p {
+            color: PeachPuff;
+        }
+        
+        .font1 {
+            font-family: Georgia, serif;
+            color: #373737;
+        }
+        
+        @font-face {
+            font-family: BebasNeue;
+            src: url(Fonts/bebasneue_book-webfont.woff2);
+        }
+        
+        .font2 {
+            font-family:BebasNeue, Arial, Helvetica, sans-serif;
+            color: #2e2e40;
+        }
+        
+        .font3 {
+            font-family: Georgia, serif;
+            font-weight: bold;
+        }
+        
+        .font4 {
+            font-family: Georgia, serif;
+            color: #2e2e40;
+        }
+        
+        .font5 {
+            font-family: Georgia, serif;
+            font-size: 2em;
+        }
+        
+        .font6 {
+            font-family: Georgia, serif;
+            color: #2e2e40;
+            font-style:italic;
+        }
+        
+        .font7 {
+            font-family: Georgia, serif;
+            text-decoration: line-through;
+        }
+        
+        .font8 {
+            font-family: Georgia, serif;
+            color: #2e2e40;
+            text-transform: uppercase;
+        }
+        
+        .font9 {
+            font-family: Georgia, serif;
+            text-indent: 80px;
+        }
+        
+        .turquoise {
+            background:#40E0D0;
+            width: 500px;
+            height: 100px;
+            margin:20px;
+            padding: 5px;
+        }
+        
+        .turquoise p {
+            color:#806c00;
+            text-align:left;
+        }
+        
+        .right {
+            color:#800080;
+            text-align:right;
+        }
+        
+        .lime {
+            background:#7FFF00;
+            width: 500px;
+            height: 125px;
+            margin:20px;
+            padding: 5px;
+            text-align: center;
+        }
+        
+        .lime p {
+            color:#2F4F4F;
+        }
+        
+        .justify {
+            color:#114597;
+            text-align:justify;
+        }
+        
+        .linkmod a:link {
+            color:Orange;
+            font-weight:bold;
+            text-decoration: none;
+        }
+        
+        .linkmod a:visited {
+            color:OliveDrab;
+            text-decoration: none;
+        }
+        
+        .linkmod a:hover {
+            color:DarkCyan;
+            font-size: 250%;
+            text-decoration:none;
+        }
+        
+        linkmod a:active {
+            color:Indigo;
+            font-size: 500%;
+        }

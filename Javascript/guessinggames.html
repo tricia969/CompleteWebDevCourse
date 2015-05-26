@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="../Scripts/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            //load menu
+            $.ajax ({
+                //retrieve menu page
+                url: "../menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#javascript").attr("id","current");
+                //mark active page
+                $("#js3").attr("id","subcur");
+            });
+        </script>
+        <title>Using Math - Guessing Games</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="../style.css" />
+        <link rel="stylesheet" type="text/css" href="jsstyle.css">
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="titlebar">
+                    <h1>Chaton Web Technology</h1>
+                </div>
+                <div id="mainmenu">
+                    
+                </div>
+            </div>
+            <div id="content">
+                <h2>How Many Fingers?</h2>
+                <p>Let's play a game.  I've got one hand behind my back, can you guess how many fingers I'm holding up?</p>
+                <input type="text" id="guess" /><br />
+                <button id="submit">submit</button><br />
+                <hr />
+                <h2>What Am I Eating?</h2>
+                <p>Can you guess what I'm eating right now?  I'll give you a hint, it's one of the foods listed below.</p>
+                <div id="list">
+                    <div class="left">
+                        <ul>
+                            <li>chocolate</li>
+                            <li>bacon</li>
+                            <li>jelly beans</li>
+                            <li>pizza</li>
+                            <li>ice cream</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <ul>
+                            <li>roast beef</li>
+                            <li>cherry pie</li>
+                            <li>lemon sorbet</li>
+                            <li>cheeseburger</li>
+                            <li>dill pickles</li>
+                        </ul>
+                    </div>
+                    <div class="clearboth"></div>
+                </div>
+                <input type="text" id="food" /><br />
+                <button id="choice">guess</button><br />
+                <hr />
+                <h2>How Many Fingers Are You Holding Up?</h2>
+                <p>Enter how many fingers you are holding up on one hand and I'll see how many tries it takes me to guess the correct answer.</p>
+                <p id="warning" style="visibility:hidden;"></p>
+                <input id="yourFingers" type="text" />
+                <button id="enterFingers">Let Me Guess!</button>
+            </div>
+            <div id="footer">
+                &copy; 2015 Tricia A. Sales
+            </div>
+            <div class="clearboth"></div>
+        </div>
+        <script type="text/javascript" src="Scripts/ggscripts.js>
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,695 @@
+<!doctype html>
+<html>
+<head>
+    <title>Learning CSS</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+</head>
+
+<body>
+
+<a href="../index.html">Back to Index</a>
+
+    <h1>Learning CSS</h1>
+    
+    <p>CSS stands for Cascading Style Sheets.  The Cascading part of the name refers to the fact that multiple styles can be applied to a single document with only the last style for any element being the one that is displayed.</p>
+    
+    <h2>Inline Style</h2>
+    
+    <p style="color:blue; font-size:150%;">Quickly change the look of a single element by adding styling to the tag.  This is not recommended for any styling that would appear in multiple instances as it would require coding each instance and then editing each instance separately if changes were desired.</p>
+    
+    <div><u>Code</u>: &lt;p style="color:blue; font-size:150%;"&gt;</div>
+    
+    <h2>Internal Style</h2>
+    
+    <p>Internal styling happens in the header of a document.  Unless specifically denoted it will affect all elements of the declared type (body, paragraph, div).  It will not however overwrite inline styling because of the order of style application (external, internal, inline).</p>
+    
+    <h3>Classes &amp; IDs</h3>
+    
+    <p class="tiny">Classes and IDs allow you to alter styles across elements and also to designate some instances of an element as different.  Classes may be used multiple times in a single document, while styling rules dictate that an ID only appear once in each document.</p>
+    
+    <p class="purple">Class names are preceded by a . when declaring them in the style section.  A style can define new properties for an element and/or overwrite existing properties for the element it is applied to.  Any styles not overwritten by the class will follow previously declared style rules or the default styling if no specific style has been declared.</p>
+    
+    <p id="curly">An ID can be used to style a single element in a document.  ID are useful when applying javascript to a page.  ID names are preceded by a # when declaring them in the style section. Like classes IDs can define new properties and/or overwrite previous declarations.</p>
+    
+    <p id="big" class="blue">You can use both an ID and a class to define the properties of an element.  Stacking styles can get tricky when the same property is defined multiple times.  Things like the order the styles are applied, the importance of the style, and whether the style is defined as a subtype of the original style all play a role in the final look.</p>
+    
+    <p class="curlygreen">You may define as many characteristics as you want in a class, ID, or element style definition.  This paragraph has a special font-family, color, and size all defined by the class curlygreen.</p>
+    
+    <div><u>Code</u>: <pre>
+        &lt;style type="text/css"&gt;
+            p {
+                color:red;
+            }
+            
+            .tiny {
+                font-size:75%;
+            }
+            
+            .purple {
+                color:purple;
+            }
+            
+            @font-face {
+                font-family: Vladimir;
+                src: url(Fonts/vladimir-webfont.woff);
+            }
+            
+            #curly {
+                font-family:Vladimir;
+            }
+            
+            #big {
+                font-size:125%;
+            }
+            
+            .blue {
+                color:blue;
+            }
+            
+            .curlygreen {
+                font-family:Vladimir;
+                font-size: 135%;
+                color:green;
+            }
+        &lt;/style&gt;
+    </pre></div>
+    
+    <h3>span</h3>
+    
+    <p>The span tag allows you to apply a predefined class or ID to just a word or phrase inside another element or <span class="blue">to overwrite styling already applied</span>.  The third <span class="underline">word</span> is underlined. The fourth word <span class="bold">is</span> bold.  The fifth word has <span class="italics">italics</span>. The sixth word in this <span class="underline bold italics blue">sentence</span> shows multiple classed applied at the same time.</p>
+    
+    <div><span class="underline">Code</span>: <pre>
+        Inside the header style area...
+            .underline {
+                text-decoration:underline;
+            }
+            
+            .italics {
+                font-style: italic;
+            }
+            
+            .bold {
+                font-weight:bold;
+            }
+        In the paragraph itself...
+            &lt;span class="blue"&gt;to overwrite styling already applied&lt;/span&gt;
+            &lt;span class="underline"&gt;word&lt;/span&gt;
+            &lt;span class="bold"&gt;is&lt;/span&gt;
+            &lt;span class="italics"&gt;italics&lt;/span&gt;
+            &lt;span class="underline bold italics blue"&gt;sentence&lt;/span&gt;
+    </pre></div>
+    
+    <h3>divs</h3>
+    
+    <div class="bluebox">
+        <p>The div tag provides a logical way to divide up your page and keep sections logically ordered and defined.  A div appears as a rectangle surrounding the content.  You can control all the properties of a div the same way you do any other element.</p>
+    </div>
+    
+    <div class="pinkbox">Apply styles to the base element div carefully, because every div will adopt that styling.  Using an ID for a sectional div or a class for a lower level div will allow easier customization and prevent having to overwrite too many style rules.</div>
+    
+    <div class="yellowbox">
+        <p>In the bluebox div I defined the color of the text as white, but the paragraph tag inside the div overwrites the text color to red.  In the pinkbox div I declared the text color blue and didn't use a paragraph tag so the blue text shows.  In this yellowbox div I added a style definition that changes the color of paragraph text inside yellowboxes to purple allowing the desired text color to show.  The yellowbox example is considered stylistically correct.</p>
+    </div>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .bluebox {
+            background: blue;
+            color: white;
+            width: 300px;
+        }
+        
+        .pinkbox {
+            background: pink;
+            color: blue;
+            width:500px;
+            height:250px;
+        }
+        
+        .yellowbox {
+            background: yellow;
+            width:600px;
+        }
+        
+        .yellowbox p {
+            color: purple;
+        }
+    </pre></div>
+    
+    <h3>Color</h3>
+    
+    <div class="colorful">
+        <p>In the past browsers had limited color capability and differed greatly in their color displays, this is no longer the case.  As we've seen a few basic colors have defined names that are understood by browsers like red, blue, green, purple, etc.  If you want a specific color or a color not name defined you can use hexidecimal color codes to define very specific color.  Programs like Photoshop and Paintshop will provide you with a hex code when you use the color palette or you can visit a website like <a href="http://html-color-codes.info/">html color codes</a> or <a href="http://www.w3schools.com/tags/ref_colorpicker.asp">w3c html color picker</a> to pick a color and obtain its hex code.  Don't forget to use the # symbol in front of your six character code.</p>
+        <p>Need help picking colors that work well together try a website or app that develops color palettes with hex codes for you. Some tools to try include:</p>
+        <ul>
+            <li><a href="http://www.colourlovers.com/">Colour Lovers</a> - includes user shared palettes)</li>
+            <li><a href="https://color.adobe.com/">Adobe Color CC</a> - develops palettes based on your choice of color rule (formerly Adobe Kuler)</li>
+            <li><a href="http://colllor.com/">Collor</a> - easy to use</li>
+            <li><a href="http://www.dasplankton.de/ContrastA/">Contrast-A</a> - good for ensuring contrast and readability</li>
+            <li><a href="http://www.colorblender.com/">Color Blender</a> - offers suggestions but allows customization</li>
+            <li><a href="http://coolors.co/">Coolors</a> - web & ios app</li>    
+        </ul>
+    </div>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .colorful {
+            background:#fe90e3;
+        }
+        
+        .colorful p {
+            color:#57587b;
+        }
+    </pre></div>
+    
+    <h3>float</h3>
+    
+    <div class="left50 yellowbox">
+        <p>A yellow box floating to the left.</p>
+    </div>
+    <div class="right50 colorful">
+        <p>A pink box floating to the right.</p>
+    </div>
+    
+    <div class="clearboth"></div>
+    
+    <div class="left33">
+        <p class="blue">Blue text floating to the left.  Blue text floating to the left.  Blue text floating to the left.  Blue text floating to the left.  Blue text floating to the left.</p>
+    </div>
+    
+    <div class="right33">
+        <p class="bold">Bold text floating to the right.  Bold text floating to the right.  Bold text floating to the right.  Bold text floating to the right.  Bold text floating to the right.</p>
+    </div>
+    
+    <p>Because these floated areas do not take up the width of the page non-floated text will fill the space between the floated areas.</p>
+    
+    <div class="clearboth"></div>
+    
+    <div class="left33">
+        <p class="purple">Purple text floating to the left.  Purple text floating to the left.  Purple text floating to the left.  Purple text floating to the left.  Purple text floating to the left.</p>
+    </div>
+    
+    <div class="right33">
+        <p class="curlygreen">Curly green text floating to the right.  Curly green text floating to the right.  Curly green text floating to the right.  Curly green text floating to the right.  Curly green text floating to the right.</p>
+    </div>
+    
+    <p class="clearboth">The clear property can be set to clear elements to the <strong>left</strong>, <strong>right</strong>, or <strong>both</strong> sides forcing it to appear below floated elements.</p>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .left50 {
+            width:50%;
+            float: left;
+        }
+        
+        .right50 {
+            width:50%;
+            float: right;
+        }
+        
+        .left33 {
+            width: 33%;
+            float: left;
+        }
+        
+        .right33 {
+            width: 33%;
+            float: right;
+        }
+        .clearboth {
+            clear: both;
+        }
+    </pre></div>
+    
+    <h3>positioning</h3>
+    
+    <div class="yellowbox">
+        <p>The position property can have a value of static, fixed, relative or absolute.  <span class="bold">Static</span> is the <span class="italics">default</span> value and static elements sit where they fall in the normal flow of the page.</p>
+    </div>
+    
+    <div class="graybox">
+        <p><span class="bold">Fixed</span> elements are removed from the normal flow of the page.  A fixed element will be positioned the specified distance from one corner of the page (use left, top, right, and/or bottom) and won't move even when the screen scrolls.</p>
+    </div>
+    
+    <div class="purplebox">
+        <p><span class="bold">Relative</span> is positioned relative to its normal page position and its normal space is preserved.  Relatively positioned items can be overlapped and the order of the overlapping elements can be determined by defining the z-index.</p>
+    </div>
+    
+    <div class="orangebox">
+        <p>The <span class="underline">z-index</span> can be positive or negative and higher z-index values always appear in front of lower z-index values.</p>
+    </div>
+    
+    <p>Changing the z-index from its default (shown above) will change the order of the layers regardless of their original flow position.</p>
+    
+    <div class="purplebox2">
+        <p><span class="bold">Relative</span> is positioned relative to its normal page position and its normal space is preserved.  Relatively positioned items can be overlapped and the order of the overlapping elements can be determined by defining the z-index.</p>
+    </div>
+    
+    <div class="orangebox2">
+        <p>The <span class="underline">z-index</span> can be positive or negative and higher z-index values always appear in front of lower z-index values.</p>
+    </div>
+    
+    <div class="greenbox">
+        <p><span class="bold">Absolute</span> elements are positioned relative to the first non-static parent element or if none exist the html tag.  Absolutely positioned elements are removed from the page flow and are ignored by the other page elements.  Like relative elements absolute elements can overlap and their order defined by the z-index.</p>
+    </div>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .graybox {
+            background:gray;
+            width: 20%;
+            position: fixed;
+            right:10px;
+            top:100px;
+        }
+        
+        .graybox p {
+            color:LightPink;
+        }
+        
+        .purplebox {
+            background:#7f44b0;
+            width:45%;
+            position:relative;
+            left:100px;
+            top:50px;
+        }
+        
+        .purplebox p {
+            color:#fff;
+            margin: 5px;
+        }
+        
+        .orangebox {
+            background:#eb7833;
+            width:45%;
+            position:relative;
+            left:15px;
+            top:5px;
+        }
+        
+        .orangebox p {
+            color: #000;
+            margin: 5px;
+        }
+        
+        .purplebox2 {
+            background:#7f44b0;
+            width:45%;
+            position:relative;
+            left:100px;
+            top:50px;
+            z-index:1;
+        }
+        
+        .purplebox2 p {
+            color:#fff;
+            margin: 5px;
+        }
+        
+        .orangebox2 {
+            background:#eb7833;
+            width:45%;
+            position:relative;
+            left:15px;
+            top:5px;
+            z-index:-1;
+        }
+        
+        .orangebox2 p {
+            color: #000;
+            margin: 5px;
+        }
+        
+        .greenbox {
+            background:SlateBlue;
+            width:45%;
+            position:absolute;
+            right:5px;
+            top:3950px;
+            z-index: 0;
+        }
+        
+        .greenbox p {
+            color:YellowGreen;
+        }
+    </pre></div>
+    
+    <h3>margin</h3>
+    
+    <div class="pinky">
+        <p>You can change the position of an element on the page by adjusting its margins.  Elements repositioned by margin adjustments do not exit the flow of the document and generally do not overlap.</p>
+    </div>
+    
+    <div class="bluebell">
+        <p>All of the margins can be defined equally by using margin:#; the number will be used to create margins on the top, right, bottom, and left sides.</p>
+        <p>If you want to declare different margin sizes you can use margin: top# right# bottom# left#; to define each value.</p>
+        <p>If you want to declare just one margin you can use margin-top, margin-right, margin-bottom, or margin-left.</p>
+    </div>
+    
+    <div class="blackout">
+        <p>The values used for margin can be a length using px, pt, cm, etc. to define the exact size of the margin.  Margins can also be defined as a percent of the containing element.  Margin values can be positive or negative.  Negative values can cause element overlap.</p>
+    </div>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .pinky {
+            background:#F6CEEC;
+            width:85%;
+            margin:50px;
+        }
+        
+        .pinky p {
+            color:#29088A;
+        }
+        
+        .bluebell {
+            background:#0174DF;
+            width:85%;
+            margin: 50px 10px 10px 100px;
+        }
+        
+        .bluebell p {
+            color:#0A0A2A;
+        }
+        
+        .blackout {
+            background:#000;
+            width:75%;
+            margin-left: 25%;
+            margin-top:-20px;
+        }
+        
+        .blackout p {
+            color:#fff;
+        }
+    </pre></div>
+    
+    <h3>padding</h3>
+    
+    <div class="goldpad">
+        <p>Padding acts much like margins but the space is created inside the element rather than outside.  Unlike margins the padding is added to the amount of space an element takes up.  Like margins padding can be length or %. padding:#; will create the same amount of padding all around.</p>
+    </div>
+    
+    <div class="greenpad">
+        <p>Using padding: top# right# bottom# left#; will create different amounts of padding as specified.</p>
+    </div>
+    
+    <div class="silverpad">
+        <p>Like margin, padding can also be defined for a single side at a time using padding-top, padding-right, padding-bottom, or padding-left.</p>
+    </div>
+
+    <div><span class="underline">Code</span>: <pre>
+        .goldpad {
+            background: GoldenRod;
+            width: 250px;
+            padding: 15px;
+        }
+        
+        .goldpad p {
+            margin: 0;
+            color: DimGray;
+        }
+        
+        .greenpad {
+            background: LawnGreen;
+            width: 500px;
+            padding: 50px 150px;
+        }
+        
+        .greenpad p {
+            margin: 0;
+            color: RebeccaPurple;
+        }
+        
+        .silverpad {
+            background: Silver;
+            width: 150px;
+            padding-left: 75px;
+            padding-top: 25px;
+        }
+        
+        .silverpad p {
+            color: DarkSlateBlue;
+            margin:0;
+        }
+    </pre></div>
+    
+    <h3>border</h3>
+    
+    <div class="redbordered hundredsq">
+    </div>
+    
+    <div class="bluebordered hundredsq">
+    </div>
+    
+    <div class="greenbordered hundredsq">
+    </div>
+    
+    <div class="clearboth"></div>
+    
+    <div class="redbordered">
+        <p>Borders like padding add to the size of your element, a 100x100 div with a 20px border all around takes up 140x140 pixels not just the 100px declared.  Using border you can declare the size, color and style of your border.</p>
+    </div>
+    
+    <div class="bluebordered">
+        <p>You can also define each part of the border separately using border-style, border-width, and border-color.  You can opt to declare a set value for all four sides or define each side as a different value.</p>
+    </div>
+    
+    <div class="greenbordered">
+        <p>You can also define the border-radius to create nice rounded corners on your divs.  If you set your border-radius to half the width of your div on all four sides of a square div you'll get a circle, rectangular div will give you an oval.</p>
+    </div>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .hundredsq {
+            width: 100px !important;
+            height: 100px !important;
+            float: left;
+            margin: 20px;
+            padding: 0 !important;
+        }
+        
+        .redbordered {
+            background: red;
+            padding: 10px;
+            border: 20px yellow dotted;
+        }
+        
+        .redbordered p {
+            color: white;
+        }
+        
+        .bluebordered {
+            background: blue;
+            padding: 10px;
+            border-style: ridge solid dotted dashed;
+            border-width: 10px 7px 5px 3px;
+            border-color: green yellow pink grey;
+        }
+        
+        .bluebordered p {
+            color: pink;
+        }
+        
+        .greenbordered {
+            background: green;
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        
+        .greenbordered p {
+            color: peach;
+        }
+    </pre></div>
+    
+    <h3>font</h3>
+    
+    <p class="font1">Using the font-family attribute you can change the font your text is displayed in.  To ensure the appearance and readability of your site you should use a web safe font combination like the ones shown <a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp">here</a>.</p>
+    
+    <p>This paragraph has base page text with no alterations.</p>
+    
+    <p class="font2">Another option is using @font-face {font-family: YourFont; src: url(yourfontlocation);}.  There are many free online services that will convert standard font files to web font files (.woff, .woff2) for free as long as you have rights/permission to use them as a web font.</p>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .font1 {
+            font-family: Georgia, serif;
+            color: #373737;
+        }
+        
+        @font-face {
+            font-family: BebasNeue;
+            src: url(Fonts/bebasneue_book-webfont.woff2);
+        }
+        
+        .font2 {
+            font-family:BebasNeue, Arial, Helvetica, sans-serif;
+            color: #2e2e40;
+        }
+    </pre></div>
+    
+    <h3>Styling Text</h3>
+    
+    <p class="font3">Use font-weight to define the thinness/thickness of your font.  The values for font-weight are bold, <span style="font-weight:bolder;">bolder</span>, <span style="font-weight:lighter;">lighter</span>, <span style="font-weight:100;">100</span>, <span style="font-weight:200;">200</span>, <span style="font-weight:300;">300</span>, <span style="font-weight:400;">400</span>, <span style="font-weight:500;">500</span>, <span style="font-weight:600;">600</span>, <span style="font-weight:700;">700</span>, <span style="font-weight:800;">800</span>, or <span style="font-weight:900;">900</span>.  The paragraph is set to bold but each additional option is spanned to its own value.<p>
+    
+    <p class="font4">The color attribute changes the text color.  As mentioned before you can use hex codes and color names to define colors.  You can also use rgb, which stands for Red Green Blue, like this <span style="color: rgb(0,0,255);">color: rgb(0,0,255);</span>.
+    
+    <p class="font5">The font-size attribute changes the size of the text.  Font size can be defined by pixels (px), percentage of the surrounding text (%), or em where 1em is equal to the current size font.</p>
+    
+    <p class="font6">The font-style attribute sets text to <span style="font-style: normal;">normal</span>, italic, and <span style="font-style=oblique;">oblique</span>.  Oblique is similar to italic but not as widely supported.</p>
+    
+    <p class="font7">The text-decoration attribute has the values <span style="text-decoration:overline;">overline</span>, <span style="text-decoration:underline;">underline</span>, and line-through.</p>
+    
+    <p class="font8">The text-transform attribute has the values uppercase (set all letters to uppercase), <span style="text-transform:lowercase;">lowercase (sets all letters to lowercase)</span>, or <span style="text-transform:capitalize;">capitalize (sets the first letter of each word to uppercase)</span>.</p>
+    
+    <p class="font9">The text-indent attribute indents the first line of text the designated number of pixels.  This paragraph has an 80px indentation.</p>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .font3 {
+            font-family: Georgia, serif;
+            font-weight: bold;
+        }
+        
+        .font4 {
+            font-family: Georgia, serif;
+            color: #2e2e40;
+        }
+        
+        .font5 {
+            font-family: Georgia, serif;
+            font-size: 2em;
+        }
+        
+        .font6 {
+            font-family: Georgia, serif;
+            color: #2e2e40;
+            font-style:italic;
+        }
+        
+        .font7 {
+            font-family: Georgia, serif;
+            text-decoration: line-through;
+        }
+        
+        .font8 {
+            font-family: Georgia, serif;
+            color: #2e2e40;
+            text-transform: uppercase;
+        }
+        
+        .font9 {
+            font-family: Georgia, serif;
+            text-indent: 80px;
+        }
+    </pre></div>
+    
+    <h3>Aligning Text</h3>
+    
+    <div class="turquoise">
+        <p>(text-align:left;) Text in a document defaults to left alignment, you can declare it if you like or if you need to override inherited rules.  Left aligned text fills from left to right and partial lines have blank space to the right.</p>
+    </div>
+    
+    <p class="right">(text-align:right;) A paragraph without a containing element will align to the page itself.  Right aligned text is flush with the right margin and partial lines will have blank space to the left.</p>
+    
+    <div class="lime">
+        <p>(text-align:center;) If a paragraph has a parent element with a declared alignment and no alignment declaration of its own it will inherit the parent's alignment.  Center aligned text will fill from the middle of and partial lines will have blank space to the right and left.</p>
+    </div>
+    
+    <p class="justify">(text-align:justify;) Text aligned to justify will stretch each full line to cover the width of the page or parent element.  Lines fill from left to right and partial lines have blank space to the right.  Text aligned to justify will stretch each full line to cover the width of the page or parent element.  Lines fill from left to right and partial lines have blank space to the right.</p>
+    
+    <div><span class="underline">Code</span>: <pre>
+        .turquoise {
+            background:#40E0D0;
+            width: 500px;
+            height: 100px;
+            margin:20px;
+            padding: 5px;
+        }
+        
+        .turquoise p {
+            color:#806c00;
+            text-align:left;
+        }
+        
+        .right {
+            color:#800080;
+            text-align:right;
+        }
+        
+        .lime {
+            background:#7FFF00;
+            width: 500px;
+            height: 125px;
+            margin:20px;
+            padding: 5px;
+            text-align:center;
+        }
+        
+        .lime p {
+            color:#2F4F4F;
+        }
+        
+        .justify {
+            color:#114597;
+            text-align:justify;
+        }
+    </pre></div>
+    
+    <h3>Styling Links</h3>
+    
+    <h4>default styling</h4>
+    
+    <p>A unvisited link will will be blue, a visited link will be purple, and a hovered link will be blue or green depending on its visited status.  Links are underlined by default.</p>
+    
+    <a href="https://www.google.com/" target="_blank">Google</a><br /><br />
+    <a href="https://www.google.se/" target="_blank">Google SE</a>
+    
+    <h4>How to Style</h4>
+    
+    <p>Links can be styled by defining the attributes in the &lt;a&gt; tag.  Using a:link (normal unvisited link), a:visited, a:hover (link with cursor over it), and a:active (moment link is clicked) you can easily define the appearance of every link in a document during ever state.</p>
+    
+    <div class="linkmod">
+        <a href="https://www.google.com/" target="_blank">Google</a><br /><br />
+        <a href="https://www.google.se/" target="_blank">Google SE</a>
+    </div>
+    <br />
+    
+    <div><span class="underline">Code</span>: <pre>
+        .linkmod a:link {
+            color:Orange;
+            font-weight:bold;
+            text-decoration: none;
+        }
+        
+        .linkmod a:visited {
+            color:OliveDrab;
+            text-decoration: none;
+        }
+        
+        .linkmod a:hover {
+            color:DarkCyan;
+            font-size: 250%;
+            text-decoration:none;
+        }
+        
+        linkmod a:active {
+            color:Indigo;
+            font-size: 500%;
+        }
+    </pre></div>
+    
+    <h2>External Style</h2>
+    
+    <p>Because even a fairly simple document's styling can quickly cover multiple screens which make documents harder to read and causes the styling to be downloaded with each page accessed styling is often stored in a seperate style document.  The style document can then be included in the document's header.  A document may use multiple styling documents, styles will be applied in the order the document are called.</p>
+    
+    <p>An external style sheet simply contains elements and attribute definitions and is of type .css.  A link tag is included in the header that attaches the stylesheet to the document.</p>
+    
+    <div><span class="underline">Code</span>: <pre>
+        &lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;
+    </pre></div>
+    
+    <a href="../index.html">Back to Index</a>
+</body>
+</html>

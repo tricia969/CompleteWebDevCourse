@@ -1,0 +1,246 @@
+content {
+    position:relative;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    background: #7FFF00;
+    float: left;
+    margin: 10px;
+    vertical-align: top;
+}
+
+#circle{
+    width: 200px;
+    height: 200px;
+    border-radius:100px;
+    background: red;
+    float: left;
+    margin: 10px;
+    vertical-align: top;
+}
+
+.gold {
+    color: #947704;
+}
+
+.brblue {
+    color: #0769AD;
+}
+
+#changeP {
+    background: blue;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+#retrieveP {
+    background: BlueViolet;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+#makeRed {
+    background: red;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+iframe{
+    width: 75%;
+    margin: 10px;
+}
+
+#updateIframe {
+    background: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+#hotPink {
+    background: #FF1493;
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+}
+
+#yellow {
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    float: left;
+    vertical-align: top;
+}
+
+#aqua {
+    background: Aqua;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    float: left;
+    vertical-align:top;
+    visibility: hidden;
+}
+
+#holdSquares {
+    width:210px;
+    min-width:210px;
+    float: left;
+    vertical-align: top;
+}
+.tinySquare {
+    background: #483D8B;
+    width: 50px;
+    height: 50px;
+    float: left;
+    vertical-align:top;
+    margin: 10px;
+}
+
+#controlCircle {
+    background: #7B68EE;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    float: left;
+    vertical-align: top;
+    margin: 10px;
+}
+
+#growingCircle {
+    background: navy;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+#growCircle {
+    background: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+.blue {
+    color: blue;
+    background: yellow;
+}
+
+#wrapper {
+    margin: 0 auto;
+    width: 525px;
+    min-height: 450px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 1em;
+    border: 1px solid navy;
+    margin-bottom: 10px;
+}
+
+label {
+    color: navy;
+    width: 200px;
+    text-align: right;
+    padding: 8px 5px 0 0;
+    float:left;
+}
+
+#submit {
+    height: 50px;
+    width:100px;
+    float: right;
+    color: navy;
+    font-weight: bold;
+    margin-right: 7px;
+}
+
+#errorP {
+    font-size: 1.1em;
+    color:red;
+    display: none;
+}
+
+#dragSquare {
+    width: 200px;
+    height: 200px;
+    background: grey;
+}
+
+#dragMe {
+    background: lime;
+    width: 50px;
+    height: 50px;
+    text-align:center;
+    padding: 25px;
+}
+
+#resizeMe {
+    background: #57587b;
+    width: 50px;
+    height: 50px;
+    text-align:center;
+    padding: 25px;
+}
+
+#dropSquare {
+    background: pink;
+    width: 46px;
+    height: 46px;
+    text-align:center;
+    padding: 25px;
+    border: 2px solid DeepPink;
+}
+
+#dropTarget {
+    width: 300px;
+    height: 300px;
+    float: right;
+    background: black;
+    color: white;
+}
+
+#sortable {
+    font-size: 1.5em;
+    list-style-type:none;
+}
+
+#sortable li {
+    width: 130px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#jellybeans {
+    background: DeepPink;
+}
+
+#chocolate {
+    background: #320D0D;
+    color: white;
+}
+
+#pizza {
+    background: red;
+    color: white;
+}
+
+#roastbeef {
+    background: brown;
+    color: white;
+}
+
+#strawberries {
+    background: #E02B50;
+}

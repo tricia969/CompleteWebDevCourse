@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Project #4 - Code Player</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="cpstyle.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="menubar">
+                <div id="logo">CodePlayer</div>
+                <div id="butRun">
+                    <button id="runBut">RUN</button>
+                </div>
+                <ul id="options">
+                    <li class="toggle selected">HTML</li>
+                    <li class="toggle">CSS</li>
+                    <li id="jstoggle" class="toggle">JS</li>
+                    <li class="toggle selected" style="border-right:none;">Result</li>
+                </ul>
+                <div class="clearboth"></div>
+            </div>
+            <div id="codeSection">
+                <div id="HTMLBox" class="codeBox">
+                    <div class="codeLabel">HTML</div>
+                    <textarea id="htmlCode" readonly><div id="blue">no border</div></textarea>
+                </div>
+                <div id="CSSBox" class="codeBox">
+                    <div class="codeLabel">CSS</div>
+                    <textarea id="cssCode" readonly>#blue {
+                    background: blue;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50px;
+                    padding-top: 40px;
+                    box-sizing:border-box;
+                    text-align:center;
+                    }</textarea>
+                </div>
+                <div id="JSBox" class="codeBox">
+                    <div class="codeLabel">JS</div>
+                    <textarea id="jsCode" readonly>document.getElementById("blue").style.border="2px solid red"; document.getElementById("blue").innerHTML="2px red border";</textarea>
+                </div>
+                <div id="ResultBox" class="codeBox">
+                    <div class="codeLabel">Result</div>
+                    <iframe id="resultCode"></iframe>
+                </div>
+                <div class="clearboth"></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="Scripts/p4scripts.js">
+           
+        </script>
+    </body>
+</html>

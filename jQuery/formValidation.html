@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="Scripts/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+            //load menu
+            $.ajax ({
+                //retrieve menu page
+                url: "../menu.html"
+            }).done (function (data) {
+                //load menu to page
+                $("#mainmenu").html(data);
+            }).done(function () {
+                //mark active section
+                $("#jquery").attr("id","current");
+                //mark active page
+                $("#jq2").attr("id","subcur");
+            });
+        </script>
+        <title>Mini Challenge - Form Validation</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="../style.css" />
+        <link rel="stylesheet" type="text/css" href="jqstyle.css">
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="titlebar">
+                    <h1>Chaton Web Technology</h1>
+                </div>
+                <div id="mainmenu">
+                    
+                </div>
+            </div>
+            <div id="content">
+                <div id="wrapper">
+                    <p id="errorP"></p>
+                    <form id="validation">
+                        <label for="email">Email</label>
+                        <input name="email" id="email" /><br />
+                        
+                        <label for="phone">Telephone #</label>
+                        <input name="phone" id="phone" /><br />
+                        
+                        <label for="pass">Password</label>
+                        <input name="pass" type="password" id="pass" /><br />
+                        
+                        <label for="pass2">Password Confirmation</label>
+                        <input name="pass2" type="password" id="pass2" /><br />
+                        
+                        <input id="submit" type="submit" value="Submit" />
+                        <div class="clearboth"></div>
+                    </form>
+                </div>
+            </div>
+            <div id="footer">
+                &copy; 2015 Tricia A. Sales
+            </div>
+        </div>
+        <script type="text/javascript" src="Scripts/fvscripts.js">
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+body {
+    background: #282512;
+}
+
+#page {
+    width: 1000px;
+    background: #CFC2A3;
+    margin: 0 auto;
+}
+
+#titlebar {
+    background: #68552D url("Images/webheader.png") no-repeat left top;
+    padding: 20px;
+    text-align:right;
+}
+
+h1 {
+    color: #fff;
+    font-family:;
+    padding:0;
+    margin:0;
+}
+
+#mainmenu {
+    background: #2A1A03;
+    color:#c8c8c8;
+    height: 40px;
+    text-align:center;
+    margin: auto;
+    z-index: 1000;
+}
+
+#mainmenu ul {
+    margin: 0;
+    padding:0;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+}
+
+.inactive {
+    background: #2A1A03 !important;
+    color:#c8c8c8 !important;
+}
+
+#mainmenu ul #current {
+    border-bottom: 3px solid #767542;
+    padding-bottom:8px !important;
+}
+
+#mainmenu ul:after {
+    content: ""; 
+    clear: both; 
+    display: block;
+}
+
+#mainmenu ul li {
+    color: #c8c8c8;
+    text-decoration:none;
+    float:left;
+    border-right: 1px solid #767542;
+    padding: 10px 15px 12px 15px;
+}
+
+#mainmenu ul li:hover > ul {
+    display: block;
+}
+
+#mainmenu ul li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+#mainmenu ul li:hover {
+    background: #767542;
+}
+
+#mainmenu ul #current:hover, #mainmenu ul .inactive:hover {
+    background: #2A1A03 !important;
+}
+
+#mainmenu ul ul {
+    display: none;
+    z-index:1100;
+}
+
+#mainmenu ul ul {
+    background: #767542;
+    border-radius: 0px;
+    padding: 0;
+    position: absolute; 
+    top: 100%;
+}
+
+#mainmenu ul ul li {
+    float: none; 
+    border-top: 1px solid #2A1A03;
+    border-bottom: 1px solid #2A1A03;
+    position: relative;
+}
+
+#subcur {
+    background: #2a1a03 !important;
+}
+
+#subcur a {
+    color: #767542 !important;
+}
+
+#mainmenu ul ul li a {
+    padding: 5px 10px;
+    color: #fff;
+}
+
+#mainmenu ul ul .unused:hover {
+    background: #767542 !important;
+}
+
+#mainmenu ul ul li:hover {
+    background: #c8c8c8;
+}
+
+#mainmenu ul ul li:hover a {
+    color: #2a1a03;
+}
+
+#subcur:hover {
+    background:#2a1a03 !important;
+}
+
+#subcur:hover a {
+    color: #767542 !important;
+}
+
+#last {
+    border:none !important;
+}
+
+#content {
+    color:#000;
+    padding: 25px;
+}
+
+.clearboth {
+    clear: both;
+}
+
+.clearright {
+    clear: right;
+}
+
+.clearleft {
+    clear: left;
+}
+
+#footer {
+    background:#2A1A03;
+    color:#767542;
+    padding: 20px;
+    text-align:right;
+}
+

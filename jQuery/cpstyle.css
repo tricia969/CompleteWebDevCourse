@@ -1,0 +1,107 @@
+body {
+    background: #57587b;
+    margin:0;
+    padding:0;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 500;
+}
+#content {
+    background: white;
+    padding:0;
+    height:100%;
+}
+
+#menubar {
+    background: #57587b;
+    width:100%;
+    height: 30px;
+    color: white;
+    border-bottom: 2px solid #2e2e40;
+    padding: 5px 0 5px 0;
+}
+
+#logo {
+    padding: 5px;
+    float:left;
+    font-weight:bold;
+}
+
+#butRun {
+    float: right;
+    padding: 5px 10px 0 0;
+}
+
+#runBut {
+    font-size:400;
+}
+
+.toggle {
+
+}
+
+.selected {
+    background: #2e2e40;
+    height: 17px;
+}
+
+#options {
+    margin: 0;
+    padding:0;
+    list-style-type:none;
+    width: 224px;
+    height:27px;
+    margin: 0 auto;
+    border:1px solid #2e2e40;
+    border-radius:5px;
+}
+
+#options li {
+    float:left;
+    border-right:1px solid #2e2e40;
+    padding: 5px 10px;
+}
+
+#codeSection {
+    height:448px;
+    width:100%;
+}
+
+.codeBox {
+    height: 100%;
+    width: 50%;
+    float: left;
+    position:relative;
+}
+
+.codeBox textarea {
+    width:100%;
+    height: 100;
+    border:none;
+    border-right: 1px solid #2e2e40;
+    font-family: monotype;
+    font-size:90%;
+    padding: 5px;
+    box-sizing:border-box;
+    text-align:left;
+}
+
+.codeLabel {
+    position:absolute;
+    right: 10px;
+    top: 10px;
+    z-index:5;
+    color:#57587b;
+}
+
+#CSSBox, #JSBox {
+    display:none;
+}
+
+iframe {
+    height: 100%;
+    min-height:100%;
+    width: 100%;
+    position: relative;
+    left:10px;
+    border:none;
+}

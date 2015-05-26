@@ -1,0 +1,83 @@
+<div class="example">
+                            <p id="addMessage">Type a number in each input box then click add, I'll give you an answer quick.</p>
+                            <input id="num1" />&#09;<input id="num2" /><div id="answer"></div><br />
+                            <button id="addUs">add</button>
+                        </div>
+//accepts two numbers from input on click, verifies that they are both
+            //valid javascript numbers and reports the answer if they are in a div
+            //if one or both values are not numbers they user is prompted to fix
+            var number1 = document.getElementById("num1");
+            var number2 = document.getElementById("num2");
+            var button = document.getElementById("addUs");
+            var addMess = document.getElementById("addMessage");
+            var answer = document.getElementById("answer");
+            var message = "";
+            
+            function verifyNumber (number) {
+                var number = number;
+                if (isNaN(number)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            
+            function errorMessage (number, place) {
+                var number = number;
+                var place = place;
+                var placeNum = "";
+                if (place == 1) {
+                    placeNum = "1st";
+                } else {
+                    placeNum = "2nd";
+                }
+                if (message == "") {
+                    message = "Sorry, " + number + ", the value from the " + placeNum + " box is not a valid number.";
+                }
+            }
+            
+            function addition (number1, number2) {
+                return( +number1 + +number2);
+            }
+            
+            function addingNums () {
+                number1 = number1.value;
+                number2 = number2.value;
+                var valid = true;
+                
+                if (!verifyNumber(number1)) {
+                    message = errorMessage(number1,1);
+                    valid = false;
+                }
+                if (!verifyNumber(number2)) {
+                    if (message == "") {
+                        message = errorMessage(number2, 2);
+                    } else {
+                        message = message + "<br />" + errorMessage(number2,2);
+                    }
+                    valid = false;
+                }
+                if (valid == true) {
+                    answer.innerHTML = "&#09;&#09;" + addition(number1,number2);
+                    answer.style.display = "inline";
+                } else {
+                    addMess.innerHTML = message;
+                }
+            }
+            
+            function clearAll() {
+                number1.value = '';
+                number2.value = '';
+                message = "";
+                addMess.innerHTML = "Type a number in each input box then click add, I'll give you an answer quick.";
+            }
+            
+            button.onclick = function () {
+                if (button.innerHTML == "add") {
+                    addingNums();
+                    button.innerHTML = "clear";
+                } else {
+                    clearAll();
+                    button.innerHTML = "add";
+                }
+            }
